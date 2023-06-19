@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<printer>
+	<scripts>
+		<script name="activate">M130 L255 D255 V255 R0 G255 B100
+M412 S1 D7 H1</script>
+		<script name="continue">M412 S1 D7 H1</script>
+	<script name="connect">M130L255 D255 V255 R0 G255 B100
+M412 S1 D7 H1</script>
+	<script name="connectReset">M130L255 D255 V255 R0 G255 B100
+M412 S1 D7 H1</script>
+	<script name="pause">G1 Z10
+M109 T0 S100 T1 S100</script>
+	</scripts>
+	<extruders>
+		<extruder changeFastDistance="2000" changeSlowDistance="2000" filamentDiameter="1.75" lastTemp="100" maxTemp="500" num="0" offset="0" supportTemperature="true" tempMaster="0" toolDiameter="0.4" toolType="0">
+			<alias/>
+			<maxSpeed acceleration="100" jerk="30" max="100"/>
+			<extrude speed="2"/>
+			<retract speed="15"/>
+			<tempChange cooldownPerSecond="0.5" heatupPerSecond="2"/>
+			<offsets x="0" y="0"/>
+			<temperatures>
+				<temperature value="255">ABS 255</temperature>
+				<temperature value="215">PLA 215</temperature>
+				<temperature value="230">PET 230</temperature>
+			</temperatures>
+		</extruder>
+		<extruder changeFastDistance="20" changeSlowDistance="20" filamentDiameter="1.75" lastTemp="204" maxTemp="500" num="1" offset="0" supportTemperature="true" tempMaster="1" toolDiameter="0.4" toolType="0">
+			<alias/>
+			<maxSpeed acceleration="100" jerk="30" max="100"/>
+			<extrude speed="2"/>
+			<retract speed="30"/>
+			<tempChange cooldownPerSecond="0.5" heatupPerSecond="2"/>
+			<offsets x="0" y="0"/>
+			<temperatures>
+				<temperature value="255">ABS 255</temperature>
+				<temperature value="215">PLA 215</temperature>
+				<temperature value="230">PET 230</temperature>
+			</temperatures>
+		</extruder>
+		<extruder changeFastDistance="20" changeSlowDistance="20" filamentDiameter="1.75" lastTemp="0" maxTemp="500" num="2" offset="0" supportTemperature="true" tempMaster="2" toolDiameter="0.4" toolType="0">
+			<alias/>
+			<maxSpeed acceleration="100" jerk="30" max="100"/>
+			<extrude speed="2"/>
+			<retract speed="30"/>
+			<tempChange cooldownPerSecond="0.5" heatupPerSecond="2"/>
+			<offsets x="0" y="0"/>
+			<temperatures>
+				<temperature value="255">ABS 255</temperature>
+				<temperature value="215">PLA 215</temperature>
+				<temperature value="230">PET 230</temperature>
+			</temperatures>
+		</extruder>
+	</extruders>
+	<heatedBeds>
+		<heatedBed lastTemp="150" maxTemp="380" num="0" offset="0">
+			<alias/>
+			<tempChange cooldownPerSecond="0.1" heatupPerSecond="0.1"/>
+			<temperatures/>
+		</heatedBed>
+	</heatedBeds>
+	<heatedChambers>
+		<heatedChamber lastTemp="110" maxTemp="380" num="0" offset="0">
+			<alias/>
+			<tempChange cooldownPerSecond="0.1" heatupPerSecond="0.1"/>
+			<temperatures/>
+		</heatedChamber>
+	</heatedChambers>
+	<webcams/>
+	<general>
+		<name>EP500S</name>
+		<slug>EP500S</slug>
+		<model/>
+		<manufacturer/>
+		<printerHomepage/>
+		<printerManual/>
+		<firmwareName>Marlin</firmwareName>
+		<printerVariant>cartesian</printerVariant>
+		<active>true</active>
+		<numFans>0</numFans>
+		<tempUpdateEvery>1</tempUpdateEvery>
+		<pauseHandling>0</pauseHandling>
+		<pauseSeconds>120</pauseSeconds>
+		<doorHandling>1</doorHandling>
+		<sdcard>false</sdcard>
+		<softwarePower>false</softwarePower>
+		<softwareLight>false</softwareLight>
+		<defaultVolumetric>false</defaultVolumetric>
+		<logHistory>true</logHistory>
+		<useOwnModelRepository>false</useOwnModelRepository>
+		<useModelFromSlug>TEST</useModelFromSlug>
+	</general>
+	<connection>
+		<connectionMethod>0</connectionMethod>
+		<continueAfterFastReconnect>true</continueAfterFastReconnect>
+		<password/>
+		<pipe>
+			<file/>
+		</pipe>
+		<ip>
+			<port>23</port>
+			<address/>
+		</ip>
+		<serial>
+			<baudrate>115200</baudrate>
+			<connectionDelay>0</connectionDelay>
+			<rts>0</rts>
+			<dtr>0</dtr>
+			<emergencySolution>0</emergencySolution>
+			<usbreset>0</usbreset>
+			<device>/dev/serial/by-id/usb-Arduino__www.arduino.cc__Arduino_Due_Prog._Port_8513831393335171A051-if00</device>
+			<pingPong>true</pingPong>
+			<interceptor>true</interceptor>
+			<visibleWithoutRunning>false</visibleWithoutRunning>
+			<malyanHack>false</malyanHack>
+			<inputBufferSize>127</inputBufferSize>
+			<maxParallelCommands>0</maxParallelCommands>
+			<communicationTimeout>3</communicationTimeout>
+		</serial>
+		<lcdTimeMode>4</lcdTimeMode>
+		<powerOffIdleMinutes>0</powerOffIdleMinutes>
+		<powerOffMaxTemperature>50</powerOffMaxTemperature>
+		<resetScript/>
+	</connection>
+	<movement>
+		<xMin>-61</xMin>
+		<xMax>563</xMax>
+		<xHome>-61</xHome>
+		<yMin>-4</yMin>
+		<yMax>556</yMax>
+		<yHome>-4</yHome>
+		<zMin>-5</zMin>
+		<zMax>541</zMax>
+		<zHome>0</zHome>
+		<xyJerk>20</xyJerk>
+		<zJerk>0.30000000000000004</zJerk>
+		<timeMultiplier>1</timeMultiplier>
+		<movebuffer>16</movebuffer>
+		<xySpeed max="500">500</xySpeed>
+		<zSpeed max="10">10</zSpeed>
+		<defaultAcceleration>700</defaultAcceleration>
+		<defaultTravelAcceleration>300</defaultTravelAcceleration>
+		<defaultRetractAcceleration>4000</defaultRetractAcceleration>
+		<xyPrintAcceleration>2000</xyPrintAcceleration>
+		<xyTravelAcceleration>2000</xyTravelAcceleration>
+		<zPrintAcceleration>300</zPrintAcceleration>
+		<zTravelAcceleration>300</zTravelAcceleration>
+		<endstops all="true" autolevel="false" x="true" y="true" z="true"/>
+		<invert x="true" y="true" z="true"/>
+		<G10Speed>50</G10Speed>
+		<G10Distance>3</G10Distance>
+		<G10LongDistance>50</G10LongDistance>
+		<G11Speed>50</G11Speed>
+		<G11ExtraDistance>0</G11ExtraDistance>
+		<G11ExtraLongDistance>0</G11ExtraLongDistance>
+		<G10ZLift>0</G10ZLift>
+	</movement>
+	<shape>
+		<grid color="#454545" spacing="10"/>
+		<rectangle color="#dddddd" xMax="563" xMin="-55" yMax="556" yMin="-10"/>
+	</shape>
+	<recover>
+		<enabled>false</enabled>
+		<replayExtruderSwitches>false</replayExtruderSwitches>
+		<maxTimeForAutocontinue>300</maxTimeForAutocontinue>
+		<reactivateBedOnConnect>true</reactivateBedOnConnect>
+		<firmwarePowerlossSignal/>
+		<procedure>G28 X0 Y0 R0</procedure>
+		<runOnConnect>G28 X0 Y0 R0</runOnConnect>
+		<extraZOnFirmwareDetect>0</extraZOnFirmwareDetect>
+		<delayBeforeReconnect>30</delayBeforeReconnect>
+	</recover>
+	<buttonCommands>
+		<button name="Auto Bed Leveling"/>
+		<button name="Home"/>
+		<button name="Home X"/>
+		<button name="Home Y"/>
+		<button name="Home Z"/>
+		<button name="Light Off"/>
+		<button name="Light On"/>
+		<button name="Motors Off"/>
+		<button name="Power Off"/>
+		<button name="Power On"/>
+	</buttonCommands>
+	<quickCommands>
+		<quickCommand icon="&lt;svg viewBox=&quot;0 0 76 76&quot; version=&quot;1.1&quot; baseProfile=&quot;full&quot; enable-background=&quot;new 0 0 76.00 76.00&quot; space=&quot;preserve&quot;&gt;&#xA;&#x9;&lt;path fill=&quot;#000000&quot; fill-opacity=&quot;1&quot; stroke-width=&quot;0.2&quot; stroke-linejoin=&quot;round&quot; d=&quot;M 40.8505,42.1807C 42.4126,43.7428 42.4126,46.2755 40.8505,47.8376C 39.2884,49.3997 36.7558,49.3997 35.1937,47.8376C 34.6609,47.3048 34.3099,46.6592 34.1405,45.9777L 32.3653,39.3523L 38.9907,41.1276C 39.6722,41.297 40.3178,41.648 40.8505,42.1807 Z M 38,23C 49.0457,23 58,31.9543 58,43L 58,46L 48,46L 48,43C 48,37.4772 43.5228,33 38,33C 32.4771,33 28,37.4772 28,43L 28,46L 18,46L 18,43C 18,31.9543 26.9543,23 38,23 Z M 55,43C 55,38.6711 53.3819,34.7201 50.7177,31.7188L 47.8827,34.5538C 49.8262,36.8258 51,39.7758 51,43L 55,43 Z M 26.7159,30.2849L 29.5508,33.1198C 31.5805,31.3825 34.1519,30.2597 36.9766,30.0397L 36.9766,26.0303C 33.0485,26.2636 29.4794,27.8306 26.7159,30.2849 Z M 46.4702,33.1379L 49.3048,30.3033C 46.5275,27.8287 42.933,26.2517 38.9766,26.0276L 38.9766,30.0362C 41.8295,30.2481 44.4261,31.3807 46.4702,33.1379 Z M 21,43L 25,43C 25,39.7658 26.181,36.8075 28.1353,34.5328L 25.3007,31.6981C 22.6255,34.7019 21,38.6612 21,43 Z &quot;&gt;&lt;/path&gt;&#xA;&lt;/svg&gt;" name="nozzleCal" visibleWhenPrinting="1">M134
+M132
+M133</quickCommand>
+	</quickCommands>
+	<wizardCommands/>
+	<responseEvents/>
+	<gcodeReplacements/>
+	<properties>
+		<value name="firmwareuploader_board">2</value>
+		<value name="firmwareuploader_extraFolder">-1</value>
+		<value name="firmwareuploader_extraPort"/>
+	</properties>
+</printer>
