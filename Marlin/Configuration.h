@@ -1379,8 +1379,8 @@
 
 // The size of the printable area
 // 18. 포지션 설정
-#define X_BED_SIZE 563.00
-#define Y_BED_SIZE 555.00
+#define X_BED_SIZE 521.00
+#define Y_BED_SIZE 553.00
 #define Z_MAX_HEIGHT 542.00
 
 // Travel limits (mm) after homing, corresponding to endstop positions.
