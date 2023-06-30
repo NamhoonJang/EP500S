@@ -321,4 +321,4 @@
 #define LINC_3LED_GREEN                         5
 #define LINC_3LED_BLUE                          6
 #define LINC_VACCUM_PASS_FAIL_PIN              37
-//#define LINC_MOTOR_ALARM_READ_PIN              35
+#define LINC_MOTOR_ALARM_READ_PIN              35

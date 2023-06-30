@@ -309,18 +309,16 @@ const bool Check_E2Home()
     }
     */
    void GcodeSuite::M137(){
-    while(true){
-        if(digitalRead(LINC_VACCUM_PASS_FAIL_PIN)==HIGH){
-            host_action_cancel();
-            host_action_prompt_begin(PROMPT_INFO, PSTR("Print Stop: [Low Vaccum Detected]"));
-            host_action_prompt_show();
-        }
+    if(digitalRead(LINC_VACCUM_PASS_FAIL_PIN)==HIGH){
+        host_action_cancel();
+        host_action_prompt_begin(PROMPT_INFO, PSTR("Print Stop: [Low Vaccum Detected]"));
+        host_action_prompt_show();
+    }
 
-        if(digitalRead(LINC_MOTOR_ALARM_READ_PIN)==HIGH){
-            host_action_cancel();
-            host_action_prompt_begin(PROMPT_INFO, PSTR("Print Stop: [Stepper Alarm Detected]"));
-            host_action_prompt_show();
-        }
+    if(digitalRead(LINC_MOTOR_ALARM_READ_PIN)==HIGH){
+        host_action_cancel();
+        host_action_prompt_begin(PROMPT_INFO, PSTR("Print Stop: [Stepper Alarm Detected]"));
+        host_action_prompt_show();
     }
    }
     
