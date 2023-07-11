@@ -61,6 +61,8 @@ void rx2_loop() {
   uint8_t rx1_i = 0;
   uint8_t rx1_endcnt =0;
   uint8_t SubCon_Status = 0;
+  uint8_t Modbus_Status = 0;
+  uint8_t All_Fan_Status = 0;
   uint16_t Current_sta = 0;
   uint16_t Blower_spd = 0;
   char rx1data = 0;
@@ -104,12 +106,25 @@ void rx2_loop() {
     //SERIAL_ECHOLN(rx1_data[1]);
     //SERIAL_ECHOLN(rx1_data[2]);
     if(rx1_data[0] == 'g' && rx1_data[1] == 'S' && rx1_data[2] == 'T'){
+      Modbus_Status = (rx1_data[3]-0x30);
+      All_Fan_Status = (rx1_data[4]-0x30);
       SubCon_Status = ((rx1_data[3]-0x30)*10)+(rx1_data[4]-0x30);
       Current_sta = ((rx1_data[5]-0x30)*1000)+((rx1_data[6]-0x30)*100)+((rx1_data[7]-0x30)*10)+(rx1_data[8]-0x30);
       Blower_spd = ((rx1_data[9]-0x30)*1000)+((rx1_data[10]-0x30)*100)+((rx1_data[11]-0x30)*10)+(rx1_data[12]-0x30);
 
       SERIAL_ECHO("Sta_con:"); SERIAL_ECHO(SubCon_Status); SERIAL_ECHO(" Current_sta:"); SERIAL_ECHO(Current_sta);
       SERIAL_ECHO(" Blower_spd:"); SERIAL_ECHOLN(Blower_spd);
+
+      if(Modbus_Status==2){
+        host_action_cancel();
+        host_action_prompt_begin(PROMPT_INFO, PSTR("Print Stop: [Cannot Check Chamber Fan Running]"));
+        host_action_prompt_show();
+      }
+      if(All_Fan_Status==1){
+        host_action_cancel();
+        host_action_prompt_begin(PROMPT_INFO, PSTR("Print Stop: [Chamber Fan Not Running]"));
+        host_action_prompt_show();
+      }
     }
     //SERIAL_ECHOLN("pars end"); //eco test
   }
