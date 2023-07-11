@@ -505,7 +505,7 @@
 #define TEMP_SENSOR_REDUNDANT 0
 
 // Dummy thermistor constant temperature readings, for use with 998 and 999
-#define DUMMY_THERMISTOR_998_VALUE 100
+#define DUMMY_THERMISTOR_998_VALUE 0
 #define DUMMY_THERMISTOR_999_VALUE 250
 
 // Resistor values when using MAX31865 sensors (-5) on TEMP_SENSOR_0 / 1
@@ -1751,8 +1751,8 @@
 #define Z_SAFE_HOMING //LINCSOLUTION
 
 #if ENABLED(Z_SAFE_HOMING)
-  #define Z_SAFE_HOMING_X_POINT -21.0  // X point for Z homing(24, 254)
-  #define Z_SAFE_HOMING_Y_POINT 259.0 // Y point for Z homing
+  #define Z_SAFE_HOMING_X_POINT -23.0  // X point for Z homing(24, 254)
+  #define Z_SAFE_HOMING_Y_POINT 260.0 // Y point for Z homing
 #endif
 
 // Homing speeds (mm/min)
