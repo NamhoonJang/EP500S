@@ -30,7 +30,8 @@
 char rx_command[10] = {};
 char rx_par[20] = {};
 uint8_t command_len = 0;
-
+uint8_t Count_Modbus_Status = 0;
+uint8_t Count_All_Fan_Status = 0;
 void writeRS485(char* msg485) {
   //WRITE(71, HIGH);
 
@@ -116,14 +117,24 @@ void rx2_loop() {
       SERIAL_ECHO(" Blower_spd:"); SERIAL_ECHOLN(Blower_spd);
 
       if(Modbus_Status==2){
-        host_action_cancel();
-        host_action_prompt_begin(PROMPT_INFO, PSTR("Print Stop: [Cannot Check Chamber Fan Running]"));
-        host_action_prompt_show();
+        Count_Modbus_Status++;
+        if(Count_Modbus_Status>=2){
+          host_action_cancel();
+          host_action_prompt_begin(PROMPT_INFO, PSTR("Print Stop: [Cannot Check Chamber Fan Running]"));
+          host_action_prompt_show();  
+          Count_Modbus_Status = 0;
+        }
+        
       }
       if(All_Fan_Status==1){
-        host_action_cancel();
-        host_action_prompt_begin(PROMPT_INFO, PSTR("Print Stop: [Chamber Fan Not Running]"));
-        host_action_prompt_show();
+        Count_All_Fan_Status++;
+        if(Count_All_Fan_Status>=2){
+          host_action_cancel();
+          host_action_prompt_begin(PROMPT_INFO, PSTR("Print Stop: [Chamber Fan Not Running]"));
+          host_action_prompt_show();
+          Count_All_Fan_Status = 0;
+        }
+        
       }
     }
     //SERIAL_ECHOLN("pars end"); //eco test
