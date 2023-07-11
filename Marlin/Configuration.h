@@ -2561,6 +2561,8 @@
 // ORIGIN : https://www.aliexpress.com/item/32993409517.html
 // FYSETC : https://www.aliexpress.com/item/32961471929.html
 //
+
+
 //#define DGUS_LCD_UI_ORIGIN
 //#define DGUS_LCD_UI_FYSETC
 //#define DGUS_LCD_UI_HIPRECY
@@ -2921,4 +2923,9 @@
 
 // Edit servo angles with M281 and save to EEPROM with M500
 //#define EDITABLE_SERVO_ANGLES
+
+//*** LINCSOLUTION CUSTOM CODES
 #define LINCSOLUTION_CUSTOM_CODES
+#define LCD_SERIAL_PORT 1 // rs485 포트
+#define LCD_BAUDRATE 9600 //chg_ksm
+//***

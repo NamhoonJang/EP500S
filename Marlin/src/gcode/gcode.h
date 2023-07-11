@@ -814,7 +814,11 @@ private:
   #endif
 
   static void M220();
-
+  //*** LINCSOLUTION CUSTOM CODES
+  static void M251();
+  static void M252();
+  static void M253();
+  //***
   #if HAS_EXTRUDERS
     static void M221();
   #endif

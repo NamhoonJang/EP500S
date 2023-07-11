@@ -51,6 +51,7 @@
 #include "module/temperature.h"
 #include "module/settings.h"
 #include "module/printcounter.h" // PrintCounter or Stopwatch
+#include "module/RS485test.h"
 
 #include "module/stepper.h"
 #include "module/stepper/indirection.h"

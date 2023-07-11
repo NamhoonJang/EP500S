@@ -3700,6 +3700,15 @@
  */
 //#define STARTUP_COMMANDS "M17 Z"
 
+//***LINCSOLUTION CUSTOM CODES
+
+//set lcd serial
+#define STARTUP_COMMANDS "M251"
+
+//***
+
+
+
 /**
  * G-code Macros
  *

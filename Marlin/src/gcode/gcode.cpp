@@ -696,8 +696,13 @@ void GcodeSuite::process_parsed_command(const bool no_ok/*=false*/) {
         case 218: M218(); break;                                  // M218: Set a tool offset
       #endif
 
+      
       case 220: M220(); break;                                    // M220: Set Feedrate Percentage: S<percent> ("FR" on your LCD)
-
+      //*** LINCSOLUTION CUSTOM CODES
+      case 251: M251(); break;
+      case 252: M252(); break;
+      case 253: M253(); break;
+      //***
       #if HAS_EXTRUDERS
         case 221: M221(); break;                                  // M221: Set Flow Percentage
       #endif

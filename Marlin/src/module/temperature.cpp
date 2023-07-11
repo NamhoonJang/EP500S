@@ -36,6 +36,8 @@
 #include "planner.h"
 #include "printcounter.h"
 
+uint16_t cnt_trx1_status = 0;
+
 #if EITHER(HAS_COOLER, LASER_COOLANT_FLOW_METER)
   #include "../feature/cooler.h"
   #include "../feature/spindle_laser.h"
@@ -3455,6 +3457,15 @@ void Temperature::isr() {
     babystep.task();
   #endif
 
+  //***LINCSOLUTION CUSTOM CODES
+  if(cnt_trx1_status >= 7000){
+    cnt_trx1_status = 0;
+    queue.inject_P(PSTR("M253"));
+    //SERIAL_ECHOLN("Eco Test");
+  }
+  cnt_trx1_status++;
+  //***
+  
   // Poll endstops state, if required
   endstops.poll();
 
