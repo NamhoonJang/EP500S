@@ -701,7 +701,7 @@
   #ifndef ACTION_ON_KILL
     #define ACTION_ON_KILL    "poweroff"
   #endif
-   #ifndef ACTION_ON_MESSAGE     //LINCSOLUTION CUSTOM CODES
+  #ifndef ACTION_ON_MESSAGE     //LINCSOLUTION CUSTOM CODES
     #define ACTION_ON_MESSAGE "message"
   #endif
   #if HAS_FILAMENT_SENSOR
