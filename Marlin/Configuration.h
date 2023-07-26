@@ -2922,3 +2922,5 @@
 // Edit servo angles with M281 and save to EEPROM with M500
 //#define EDITABLE_SERVO_ANGLES
 #define LINCSOLUTION_CUSTOM_CODES
+#define LCD_SERIAL_PORT 1 // rs485 포트
+#define LCD_BAUDRATE 9600 //chg_ksm
