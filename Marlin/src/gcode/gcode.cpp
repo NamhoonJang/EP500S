@@ -609,6 +609,9 @@ void GcodeSuite::process_parsed_command(const bool no_ok/*=false*/) {
         case 136: M136(); break;
         case 137: M137(); break;
         case 138: M138(); break;
+        case 251: M251(); break;
+        case 252: M252(); break;
+        case 253: M253(); break;
       #endif
 
       #if ENABLED(PSU_CONTROL)

@@ -720,18 +720,6 @@ private:
     #endif
   #endif
 
-  #if ENABLED(LINCSOLUTION_CUSTOM_CODES)
-    static void M130();
-    static void M131();
-    static void M132();
-    static void M133();
-    static void M134();
-    static void M135();
-    static void M136();
-    static void M137();
-    static void M138();
-  #endif
-
 
   #if HAS_HEATED_BED
     static void M140_M190(const bool isM190);
@@ -1136,6 +1124,21 @@ private:
   #endif
 
   static void T(const int8_t tool_index);
+
+  #if ENABLED(LINCSOLUTION_CUSTOM_CODES)
+    static void M130();
+    static void M131();
+    static void M132();
+    static void M133();
+    static void M134();
+    static void M135();
+    static void M136();
+    static void M137();
+    static void M138();
+    static void M251();
+    static void M252();
+    static void M253();
+  #endif
 
 };
 
