@@ -106,7 +106,7 @@
 #define E2_DIR_PIN                            53
 #define E2_ENABLE_PIN                         49
 #ifndef E2_CS_PIN
-  #define E2_CS_PIN                           35
+  //#define E2_CS_PIN                           35
 #endif
 
 /**

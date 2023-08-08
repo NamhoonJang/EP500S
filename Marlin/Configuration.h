@@ -1751,8 +1751,8 @@
 #define Z_SAFE_HOMING //LINCSOLUTION
 
 #if ENABLED(Z_SAFE_HOMING)
-  #define Z_SAFE_HOMING_X_POINT -21.0  // X point for Z homing(24, 254)
-  #define Z_SAFE_HOMING_Y_POINT 259.0 // Y point for Z homing
+  #define Z_SAFE_HOMING_X_POINT -27.6  // X point for Z homing(24, 254)
+  #define Z_SAFE_HOMING_Y_POINT 245.0 // Y point for Z homing
 #endif
 
 // Homing speeds (mm/min)

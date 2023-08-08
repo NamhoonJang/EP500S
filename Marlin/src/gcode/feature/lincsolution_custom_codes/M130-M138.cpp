@@ -309,19 +309,26 @@ const bool Check_E2Home()
     }
     */
    void GcodeSuite::M137(){
-    while(true){
-        if(digitalRead(LINC_VACCUM_PASS_FAIL_PIN)==HIGH){
-            host_action_cancel();
-            host_action_prompt_begin(PROMPT_INFO, PSTR("Print Stop: [Low Vaccum Detected]"));
-            host_action_prompt_show();
-        }
+    
+    bool VACCUM_PIN_ISHIGH = false;
+    bool MOTOR_ALARM_ISHIGH = false;
 
-        if(digitalRead(LINC_MOTOR_ALARM_READ_PIN)==HIGH){
-            host_action_cancel();
-            host_action_prompt_begin(PROMPT_INFO, PSTR("Print Stop: [Stepper Alarm Detected]"));
-            host_action_prompt_show();
-        }
+    if(digitalRead(LINC_VACCUM_PASS_FAIL_PIN)==HIGH) VACCUM_PIN_ISHIGH = true;
+    else if(digitalRead(LINC_VACCUM_PASS_FAIL_PIN)==LOW) VACCUM_PIN_ISHIGH = false;
+
+    if(digitalRead(LINC_MOTOR_ALARM_READ_PIN)==HIGH) MOTOR_ALARM_ISHIGH =true;
+    else if(digitalRead(LINC_MOTOR_ALARM_READ_PIN)==LOW) MOTOR_ALARM_ISHIGH = false;
+    
+    if(VACCUM_PIN_ISHIGH && MOTOR_ALARM_ISHIGH){
+        SERIAL_ECHOLN("Vaccum Pressure is too LOW & MOTOR ALARM IS HIGH");
     }
+    else if(VACCUM_PIN_ISHIGH && !MOTOR_ALARM_ISHIGH){
+        SERIAL_ECHOLN("Vaccum Pressure is too LOW");
+    }
+    else if(!VACCUM_PIN_ISHIGH && MOTOR_ALARM_ISHIGH){
+        SERIAL_ECHOLN("MOTOR ALARM IS HIGH");
+    }
+    else SERIAL_ECHOLN("Vaccum & Motor both Normal");
    }
     
     void GcodeSuite::M138(){
