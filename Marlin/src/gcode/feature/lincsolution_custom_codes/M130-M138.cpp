@@ -295,19 +295,6 @@ const bool Check_E2Home()
         
     }
 
-    /*/
-    void GcodeSuite::M137() {
-        if(digitalRead(LINC_VACCUM_PASS_FAIL_PIN)==HIGH){
-            SERIAL_ECHOLN("pin HIGH");
-            host_action_cancel();
-            host_action_prompt_begin(PROMPT_INFO, PSTR("Print has been cancelled by low vaccum."));
-            host_action_prompt_show();
-        }
-        else if(digitalRead(LINC_VACCUM_PASS_FAIL_PIN)==LOW){
-            SERIAL_ECHOLN("pin LOW");
-        }
-    }
-    */
    void GcodeSuite::M137(){
     
     bool VACCUM_PIN_ISHIGH = false;
@@ -348,7 +335,6 @@ const bool Check_E2Home()
             LED_BLUE_RATE = parser.value_ushort();
             analogWrite(LINC_3LED_BLUE, LED_BLUE_RATE);
         }
-        
     }   
 
 #endif

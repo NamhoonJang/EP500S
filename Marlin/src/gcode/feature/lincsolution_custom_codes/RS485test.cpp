@@ -57,10 +57,6 @@ void writeRS485(char* msg485) {
 
 void rx2_loop() {
   bool comm_end_sig = false;
-  bool blower1_isRunning = false;
-  bool blower2_isRunning = false;
-  bool blower3_isRunning = false;
-  bool blower4_isRunning = false;
   uint32_t cnt_temp = 0;
   uint8_t rx_num = 0;
   uint8_t rx1_cnt = 0;
@@ -133,10 +129,6 @@ void rx2_loop() {
         Count_All_Fan_Status++;
         if(Count_All_Fan_Status>=2){
           host_action_cancel();
-          if(rx1_data[5]!=0) blower1_isRunning = false;
-          if(rx1_data[6]!=0) blower2_isRunning = false;
-          if(rx1_data[7]!=0) blower3_isRunning = false;
-          if(rx1_data[8]!=0) blower4_isRunning = false;
           host_action_prompt_begin(PROMPT_INFO, PSTR("Print Stop: [Chamber Fan Not Running]"));
           host_action_prompt_show();  
           Count_All_Fan_Status = 0;

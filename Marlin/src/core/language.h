@@ -263,16 +263,6 @@
 #define STR_LINC_PART15                     "PART 15"
 #define STR_LINC_PART16                     "PART 16"
 #define STR_LINC_PART17                     "PART 17"
-#define STR_LINC_BLOWER1_NOT_RUNNING        "Blower 1 is not Running"
-#define STR_LINC_BLOWER2_NOT_RUNNING        "Blower 2 is not Running"
-#define STR_LINC_BLOWER3_NOT_RUNNING        "Blower 3 is not Running"
-#define STR_LINC_BLOWER4_NOT_RUNNING        "Blower 4 is not Running"
-#define STR_LINC_BLOWER1_2_NOT_RUNNING      "Blower 1 & 2 is not Running"
-#define STR_LINC_BLOWER1_3_NOT_RUNNING      "Blower 1 & 3 is not Running"
-#define STR_LINC_BLOWER1_4_NOT_RUNNING      "Blower 1 & 4 is not Running"
-#define STR_LINC_BLOWER2_3_NOT_RUNNING      "Blower 2 & 3 is not Running"
-#define STR_LINC_BLOWER2_4_NOT_RUNNING      "Blower 2 & 4 is not Running"
-
 
 
 // Debug
