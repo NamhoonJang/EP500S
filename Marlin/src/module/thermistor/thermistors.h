@@ -216,6 +216,12 @@ typedef struct { int16_t value; celsius_t celsius; } temp_entry_t;
 #if ANY_THERMISTOR_IS(2020) // LINCSOLUTION CUSTOM TABLE
   #include "thermistor_2020.h"
 #endif
+#if ANY_THERMISTOR_IS(3760) // LINCSOLUTION CUSTOM
+  #include "thermistor_3760.h"
+#endif
+#if ANY_THERMISTOR_IS(3761) // LINCSOLUTION CUSTOM
+  #include "thermistor_3761.h"
+#endif
 
 #define _TT_NAME(_N) temptable_ ## _N
 #define TT_NAME(_N) _TT_NAME(_N)
