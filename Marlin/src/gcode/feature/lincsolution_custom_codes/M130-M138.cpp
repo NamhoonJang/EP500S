@@ -323,23 +323,30 @@ const bool Check_E2Home()
    }
     
     void GcodeSuite::M138(){
-        uint16_t LED_RED_RATE = 0;
-        uint16_t LED_GREEN_RATE = 0;
-        uint16_t LED_BLUE_RATE = 0;
-
-        if(parser.seenval('R')){
-            LED_RED_RATE = parser.value_ushort();
-            analogWrite(LINC_3LED_RED, LED_RED_RATE);
+        if(parser.seenval('H')){
+            digitalWrite(LINC_TEST_LCD_PIN1, HIGH);
+            digitalWrite(LINC_TEST_LCD_PIN2, HIGH);
+            digitalWrite(LINC_TEST_LCD_PIN3, HIGH);
+            digitalWrite(LINC_TEST_LCD_PIN4, HIGH);
+            digitalWrite(LINC_TEST_LCD_PIN5, HIGH);
+            digitalWrite(LINC_TEST_LCD_PIN6, HIGH);
+            digitalWrite(LINC_TEST_LCD_PIN7, HIGH);
+            digitalWrite(LINC_TEST_LCD_PIN8, HIGH);
+            digitalWrite(LINC_TEST_LCD_PIN9, HIGH);
+            digitalWrite(LINC_TEST_LCD_PIN10, HIGH);
         }
-        if(parser.seenval('G')){
-            LED_GREEN_RATE = parser.value_ushort();
-            analogWrite(LINC_3LED_GREEN, LED_GREEN_RATE);
+        if(parser.seenval('L')){
+            digitalWrite(LINC_TEST_LCD_PIN1, LOW);
+            digitalWrite(LINC_TEST_LCD_PIN2, LOW);
+            digitalWrite(LINC_TEST_LCD_PIN3, LOW);
+            digitalWrite(LINC_TEST_LCD_PIN4, LOW);
+            digitalWrite(LINC_TEST_LCD_PIN5, LOW);
+            digitalWrite(LINC_TEST_LCD_PIN6, LOW);
+            digitalWrite(LINC_TEST_LCD_PIN7, LOW);
+            digitalWrite(LINC_TEST_LCD_PIN8, LOW);
+            digitalWrite(LINC_TEST_LCD_PIN9, LOW);
+            digitalWrite(LINC_TEST_LCD_PIN10, LOW);
         }
-        if(parser.seenval('B')){
-            LED_BLUE_RATE = parser.value_ushort();
-            analogWrite(LINC_3LED_BLUE, LED_BLUE_RATE);
-        }
-        
     }   
 
 #endif
