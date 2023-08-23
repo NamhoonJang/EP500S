@@ -303,8 +303,8 @@ const bool Check_E2Home()
     if(digitalRead(LINC_VACCUM_PASS_FAIL_PIN)==HIGH) VACCUM_PIN_ISHIGH = true;
     else if(digitalRead(LINC_VACCUM_PASS_FAIL_PIN)==LOW) VACCUM_PIN_ISHIGH = false;
 
-    if(digitalRead(LINC_MOTOR_ALARM_READ_PIN)==HIGH) MOTOR_ALARM_ISHIGH =true;
-    else if(digitalRead(LINC_MOTOR_ALARM_READ_PIN)==LOW) MOTOR_ALARM_ISHIGH = false;
+    if(digitalRead(LINC_MOTOR_ALARM_READ_PIN)==LOW) MOTOR_ALARM_ISHIGH =true;
+    else if(digitalRead(LINC_MOTOR_ALARM_READ_PIN)==HIGH) MOTOR_ALARM_ISHIGH = false;
     
     if(VACCUM_PIN_ISHIGH && MOTOR_ALARM_ISHIGH){
         SERIAL_ECHOLN("Vaccum Pressure is too LOW & MOTOR ALARM IS HIGH");
