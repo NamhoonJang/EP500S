@@ -311,7 +311,7 @@ typedef struct {
 } skew_factor_t;
 
 #if ENABLED(DISABLE_INACTIVE_EXTRUDER)
-  typedef IF<(BLOCK_BUFFER_SIZE > 64), uint16_t, uint8_t>::type last_move_t;
+   typedef IF<(BLOCK_BUFFER_SIZE > 64), uint16_t, uint8_t>::type last_move_t;
 #endif
 
 class Planner {

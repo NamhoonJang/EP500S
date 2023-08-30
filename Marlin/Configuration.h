@@ -931,7 +931,7 @@
  *                                      X, Y, Z [, I [, J [, K]]], E0 [, E1[, E2...]]
  */
 // 12. 유닛당 스텝
-#define DEFAULT_AXIS_STEPS_PER_UNIT   { 448.5, 223.90, 2666.67, 1291.12}
+#define DEFAULT_AXIS_STEPS_PER_UNIT   { 224.25, 223.90, 2666.67, 1291.12}
 //원래는 446.94, 223.90, 2666.67, 1315.00
 /**
  * Default Max Feed Rate (mm/s)

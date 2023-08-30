@@ -23,10 +23,9 @@
 #include "../Marlin/src/inc/MarlinConfigPre.h"
 #include "../Marlin/src/module/planner.h"
 
-void changeToolChangeSpeed(float inputSpeed);
-extern float toolchangeSpeed;
+float toolchangeSpeed = planner.settings.max_feedrate_mm_s[X_AXIS];
 
-
-//#define LINCSOLUTION_TOOLCHANGE_SPEED 300
-//lincsolution_custom_toolchangeSpeed = planner.settings.max_feedrate_mm_s[X_AXIS]; 
-
+void changeToolChangeSpeed(float inputSpeed){
+    toolchangeSpeed = inputSpeed;
+    SERIAL_ECHOLNPAIR("Tool Change Speed Set to: ", inputSpeed);
+}

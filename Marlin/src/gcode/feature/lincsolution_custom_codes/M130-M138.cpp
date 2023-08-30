@@ -20,7 +20,7 @@
  *
  */
 
-
+#include "LincsolutionCustom.h"
 #include "../../../inc/MarlinConfig.h"
 #include "../Marlin/src/module/probe.h"
 // 핀 사용을 위한 헤더파일 추가
@@ -44,6 +44,7 @@ bool IS_E2_Homed = false;
 const float Tool_UpDown_Dist = 9.18; //10.2
 float probePosX = Z_SAFE_HOMING_X_POINT;
 float probePosY = Z_SAFE_HOMING_Y_POINT; 
+float setToolChangeSpeed;
 
 const bool Check_E2Home()
     {
@@ -97,8 +98,12 @@ const bool Check_E2Home()
         if(parser.seen('E')){
             if(digitalRead(LINC_E2_ENDSTOP_PIN)==HIGH) SERIAL_ECHOLNPAIR("E2 ENDSTOP STATE: HIGH");
             else if(digitalRead(LINC_E2_ENDSTOP_PIN)==LOW) SERIAL_ECHOLNPAIR("E2 ENDSTOP STATE: LOW");
-            
         }
+        if(parser.seenval('T')){
+            setToolChangeSpeed = parser.value_ushort();
+             changeToolChangeSpeed(setToolChangeSpeed);
+        }
+        
     }
 
     /**
