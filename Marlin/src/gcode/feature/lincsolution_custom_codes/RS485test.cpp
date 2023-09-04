@@ -20,12 +20,13 @@
  *
  */
 
-#include "../inc/MarlinConfigPre.h"
+#include "../Marlin/src/inc/MarlinConfigPre.h"
+#include "../Marlin/src/feature/host_actions.h"
 
-#include "../core/serial.h"
-#include "../MarlinCore.h"
+#include "../Marlin/src/core/serial.h"
+#include "../Marlin/src/MarlinCore.h"
 
-#include "../gcode/gcode.h"
+#include "../Marlin/src/gcode/gcode.h"
 
 char rx_command[10] = {};
 char rx_par[20] = {};
@@ -119,9 +120,7 @@ void rx2_loop() {
       if(Modbus_Status==2){
         Count_Modbus_Status++;
         if(Count_Modbus_Status>=2){
-          host_action_cancel();
-          host_action_prompt_begin(PROMPT_INFO, PSTR("Print Stop: [Cannot Check Chamber Fan Running]"));
-          host_action_prompt_show();  
+          SERIAL_ECHO("Cannot Check Chamber Fan Running");
           Count_Modbus_Status = 0;
         }
         
@@ -131,7 +130,7 @@ void rx2_loop() {
         if(Count_All_Fan_Status>=2){
           host_action_cancel();
           host_action_prompt_begin(PROMPT_INFO, PSTR("Print Stop: [Chamber Fan Not Running]"));
-          host_action_prompt_show();
+          host_action_prompt_show();  
           Count_All_Fan_Status = 0;
         }
         

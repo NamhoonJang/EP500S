@@ -36,6 +36,10 @@
 #include "../Marlin/src/module/motion.h"
 #include "../Marlin/src/libs/nozzle.h"
 #include "Wire.h"
+#include "../Marlin/src/gcode/feature/lincsolution_custom_codes/RS485test.h"
+#include "../Marlin/src/gcode/gcode.h"
+#include "../Marlin/src/lcd/marlinui.h"
+#include "../lincsolution_custom_codes/MCP_DAC.h"
 
 bool T2_First_Move = false;
 bool T2_Moved_CW = false;
@@ -44,6 +48,9 @@ bool IS_E2_Homed = false;
 const float Tool_UpDown_Dist = 9.18; //10.2
 float probePosX = Z_SAFE_HOMING_X_POINT;
 float probePosY = Z_SAFE_HOMING_Y_POINT; 
+
+MCP4921 _DAC;
+int DAC_INPUT_VALUE = 0;
 
 const bool Check_E2Home()
     {
@@ -323,7 +330,8 @@ const bool Check_E2Home()
    }
     
     void GcodeSuite::M138(){
-        if(parser.seenval('H')){
+
+        if(parser.seen('H')){
             digitalWrite(LINC_TEST_LCD_PIN1, HIGH);
             digitalWrite(LINC_TEST_LCD_PIN2, HIGH);
             digitalWrite(LINC_TEST_LCD_PIN3, HIGH);
@@ -333,9 +341,9 @@ const bool Check_E2Home()
             digitalWrite(LINC_TEST_LCD_PIN7, HIGH);
             digitalWrite(LINC_TEST_LCD_PIN8, HIGH);
             digitalWrite(LINC_TEST_LCD_PIN9, HIGH);
-            digitalWrite(LINC_TEST_LCD_PIN10, HIGH);
+            //digitalWrite(LINC_TEST_LCD_PIN10, HIGH);
         }
-        if(parser.seenval('L')){
+        if(parser.seen('L')){
             digitalWrite(LINC_TEST_LCD_PIN1, LOW);
             digitalWrite(LINC_TEST_LCD_PIN2, LOW);
             digitalWrite(LINC_TEST_LCD_PIN3, LOW);
@@ -345,8 +353,115 @@ const bool Check_E2Home()
             digitalWrite(LINC_TEST_LCD_PIN7, LOW);
             digitalWrite(LINC_TEST_LCD_PIN8, LOW);
             digitalWrite(LINC_TEST_LCD_PIN9, LOW);
-            digitalWrite(LINC_TEST_LCD_PIN10, LOW);
+            //digitalWrite(LINC_TEST_LCD_PIN10, LOW);
         }
-    }   
+        if(parser.seenval('D')){
+            DAC_INPUT_VALUE = parser.value_int();
+            _DAC.analogWrite(DAC_INPUT_VALUE);
+            SERIAL_ECHOLNPAIR("DAC INPUT VALUE", DAC_INPUT_VALUE);
+        }
+    } 
+
+    /**
+ * M251
+ */
+bool Flag_M251 = 0;
+#define NUM_PWMFAN 2
+
+uint8_t fanspeed_org = 0;
+
+//MCP4921 myDAC;
+
+void GcodeSuite::M251() {
+  Flag_M251 = 1;
+  LCD_SERIAL.begin(LCD_BAUDRATE);
+  //myDAC.begin(LINC_DAC_PIN);
+  _DAC.begin(LINC_DAC_PIN);
+  const millis_t serial_connect_timeout = millis() + 1000UL;
+  while (!LCD_SERIAL.connected() && PENDING(millis(), serial_connect_timeout)) { /*nada*/ }
+  SERIAL_ECHOLN("Serial1 begin 9600bps");
+
+  pinMode(LINC_TEST_LCD_PIN1, OUTPUT);
+  pinMode(LINC_TEST_LCD_PIN2, OUTPUT);
+  pinMode(LINC_TEST_LCD_PIN3, OUTPUT);
+  pinMode(LINC_TEST_LCD_PIN4, OUTPUT);
+  pinMode(LINC_TEST_LCD_PIN5, OUTPUT);
+  pinMode(LINC_TEST_LCD_PIN6, OUTPUT);
+  pinMode(LINC_TEST_LCD_PIN7, OUTPUT);
+  pinMode(LINC_TEST_LCD_PIN8, OUTPUT);
+  pinMode(LINC_TEST_LCD_PIN9, OUTPUT);
+  //pinMode(LINC_TEST_LCD_PIN10, OUTPUT);
+}
+
+
+/**
+ * M252: Get or set Fan speed. P<index> [S<speed : 0~255>]
+ */
+void GcodeSuite::M252() {
+
+  if (!parser.seen('P')) return;
+
+  const int wfan_index = parser.value_int();
+  if (WITHIN(wfan_index, 0, NUM_PWMFAN - 1)) {
+    if (parser.seen('S')) {
+      int fanspeed = parser.value_int();
+      fanspeed_org = fanspeed;
+      if (fanspeed >= 255)
+        {fanspeed = 255;}
+      else if (fanspeed <= 0)
+        {fanspeed = 0;}
+      char setFan[8] = {};
+      setFan[0] = 's'; setFan[1] = 'F';  setFan[2] = 'A'; setFan[3] = 'N';
+      setFan[4] = 48 + wfan_index;
+      if(fanspeed >=100)  
+      {
+        setFan[5] = 48 + int(fanspeed/100);
+        setFan[6] = 48 + int(fanspeed%100/10);
+        setFan[7] = 48 + int(fanspeed%100%10);
+      }
+      else if(fanspeed >= 10 || fanspeed < 100) 
+      {
+        setFan[5] = 48;
+        setFan[6] = 48 + int(fanspeed/10);
+        setFan[7] = 48 + int(fanspeed%10);
+      }
+      else
+      {
+        setFan[5] = 48;
+        setFan[6] = 48;
+        setFan[7] = 48 + fanspeed;
+      }
+      LCD_SERIAL.print(setFan);
+      //writeRS485(setFan);
+    }
+    else
+    {
+      SERIAL_ECHO_MSG(" Fan Speed ", wfan_index, "(0-255): ", fanspeed_org);
+      //추후 개선 
+      //현재는 명령값으로 return
+      //속도는 gST에서 rpm으로 체크
+      //char getFan[5] = {};
+      //getFan[0] = 'g'; getFan[1] = 'F';  getFan[2] = 'A'; getFan[3] = 'N';
+      //getFan[4] = 48 + wfan_index;
+      //LCD_SERIAL.print(getFan);
+    }
+  }
+  else
+    SERIAL_ERROR_MSG("Fan Index ", wfan_index, " out of range");
+
+}
+
+
+/**
+ * M253: Get Sub Controller Status
+ */
+void GcodeSuite::M253() {
+  char getStatus[3] = {};
+  getStatus[0] = 'g'; getStatus[1] = 'S';  getStatus[2] = 'T';
+  LCD_SERIAL.print(getStatus);
+  rx2_loop();
+  //writeRS485(getStatus);
+  //writeRS485("FAN", wfan_index, ": ", servo[servo_index].read());
+}  
 
 #endif

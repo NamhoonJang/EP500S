@@ -20,25 +20,11 @@
  *
  */
 
-//*** LINCSOLUTION CUSTOM CODES
-#include "../../inc/MarlinConfig.h"
-
-#include "../gcode.h"
-#include "../../lcd/marlinui.h"
-
-/**
- * Mxxx
- */
-bool Flag_M251 = 0;
-void GcodeSuite::M251() {
-  Flag_M251 = 1;
-  LCD_SERIAL.begin(LCD_BAUDRATE);
-
-  const millis_t serial_connect_timeout = millis() + 1000UL;
-  while (!LCD_SERIAL.connected() && PENDING(millis(), serial_connect_timeout)) { /*nada*/ }
-  SERIAL_ECHOLN("Serial1 begin 9600bps");
-}
+#include "../Marlin/src/inc/MarlinConfigPre.h"
 
 
+#include "../Marlin/src/core/serial.h"
 
 
+void writeRS485(char* msg485);
+void rx2_loop();

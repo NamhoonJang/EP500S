@@ -322,6 +322,7 @@
 #define LINC_3LED_BLUE                          6
 #define LINC_VACCUM_PASS_FAIL_PIN              37
 #define LINC_MOTOR_ALARM_READ_PIN              35
+#define LINC_DAC_PIN                           52
 
 #define LINC_TEST_LCD_PIN1                     41
 #define LINC_TEST_LCD_PIN2                     42
@@ -332,4 +333,4 @@
 #define LINC_TEST_LCD_PIN7                     47
 #define LINC_TEST_LCD_PIN8                     48
 #define LINC_TEST_LCD_PIN9                     50
-#define LINC_TEST_LCD_PIN10                    52
+//#define LINC_TEST_LCD_PIN10                    52
