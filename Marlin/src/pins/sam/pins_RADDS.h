@@ -196,7 +196,7 @@
 #define HEATER_2_PIN                          50  //NOT USE
 #if !HAS_CUTTER
   #define HEATER_BED_PIN                       7  //SSR1,2,3 - BED(CHAMBER) HEATER
-  #define HEATER_CHAMBER_PIN                  33  // CHAMBER
+  //#define HEATER_CHAMBER_PIN                  33  // CHAMBER
 #endif
 
 
@@ -321,4 +321,3 @@
 #define LINC_3LED_GREEN                         5
 #define LINC_3LED_BLUE                          6
 #define LINC_VACCUM_PASS_FAIL_PIN              37
-#define LINC_MOTOR_ALARM_READ_PIN              35

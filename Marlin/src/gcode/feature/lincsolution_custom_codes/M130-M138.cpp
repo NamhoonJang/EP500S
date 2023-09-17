@@ -294,7 +294,7 @@ const bool Check_E2Home()
         
     }
 
-    /*/
+    
     void GcodeSuite::M137() {
         if(digitalRead(LINC_VACCUM_PASS_FAIL_PIN)==HIGH){
             SERIAL_ECHOLN("pin HIGH");
@@ -306,40 +306,9 @@ const bool Check_E2Home()
             SERIAL_ECHOLN("pin LOW");
         }
     }
-    */
-   void GcodeSuite::M137(){
-    while(true){
-        if(digitalRead(LINC_VACCUM_PASS_FAIL_PIN)==HIGH){
-            host_action_cancel();
-            host_action_prompt_begin(PROMPT_INFO, PSTR("Print Stop: [Low Vaccum Detected]"));
-            host_action_prompt_show();
-        }
-
-        if(digitalRead(LINC_MOTOR_ALARM_READ_PIN)==HIGH){
-            host_action_cancel();
-            host_action_prompt_begin(PROMPT_INFO, PSTR("Print Stop: [Stepper Alarm Detected]"));
-            host_action_prompt_show();
-        }
-    }
-   }
     
     void GcodeSuite::M138(){
-        uint16_t LED_RED_RATE = 0;
-        uint16_t LED_GREEN_RATE = 0;
-        uint16_t LED_BLUE_RATE = 0;
-
-        if(parser.seenval('R')){
-            LED_RED_RATE = parser.value_ushort();
-            analogWrite(LINC_3LED_RED, LED_RED_RATE);
-        }
-        if(parser.seenval('G')){
-            LED_GREEN_RATE = parser.value_ushort();
-            analogWrite(LINC_3LED_GREEN, LED_GREEN_RATE);
-        }
-        if(parser.seenval('B')){
-            LED_BLUE_RATE = parser.value_ushort();
-            analogWrite(LINC_3LED_BLUE, LED_BLUE_RATE);
-        }
+        
         
     }   
 

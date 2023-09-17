@@ -1752,7 +1752,7 @@
 
 #if ENABLED(Z_SAFE_HOMING)
   #define Z_SAFE_HOMING_X_POINT -20.0  // X point for Z homing(24, 254)
-  #define Z_SAFE_HOMING_Y_POINT 254.0 // Y point for Z homing
+  #define Z_SAFE_HOMING_Y_POINT 255.0 // Y point for Z homing
 #endif
 
 // Homing speeds (mm/min)
@@ -1791,7 +1791,7 @@
  *    +-------------->X     +-------------->X     +-------------->Y
  *     XY_SKEW_FACTOR        XZ_SKEW_FACTOR        YZ_SKEW_FACTOR
  */
-//#define SKEW_CORRECTION
+#define SKEW_CORRECTION
 
 #if ENABLED(SKEW_CORRECTION)
   // Input all length measurements here:
@@ -2922,5 +2922,3 @@
 // Edit servo angles with M281 and save to EEPROM with M500
 //#define EDITABLE_SERVO_ANGLES
 #define LINCSOLUTION_CUSTOM_CODES
-#define LCD_SERIAL_PORT 1 // rs485 포트
-#define LCD_BAUDRATE 9600 //chg_ksm
