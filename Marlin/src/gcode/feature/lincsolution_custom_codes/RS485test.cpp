@@ -114,8 +114,8 @@ void rx2_loop() {
       Current_sta = ((rx1_data[5]-0x30)*1000)+((rx1_data[6]-0x30)*100)+((rx1_data[7]-0x30)*10)+(rx1_data[8]-0x30);
       Blower_spd = ((rx1_data[9]-0x30)*1000)+((rx1_data[10]-0x30)*100)+((rx1_data[11]-0x30)*10)+(rx1_data[12]-0x30);
 
-      SERIAL_ECHO("Sta_con:"); SERIAL_ECHO(SubCon_Status); SERIAL_ECHO(" Current_sta:"); SERIAL_ECHO(Current_sta);
-      SERIAL_ECHO(" Blower_spd:"); SERIAL_ECHOLN(Blower_spd);
+      //SERIAL_ECHO("Sta_con:"); SERIAL_ECHO(SubCon_Status); SERIAL_ECHO(" Current_sta:"); SERIAL_ECHO(Current_sta);
+      //SERIAL_ECHO(" Blower_spd:"); SERIAL_ECHOLN(Blower_spd);
 
       if(Modbus_Status==2){
         Count_Modbus_Status++;
