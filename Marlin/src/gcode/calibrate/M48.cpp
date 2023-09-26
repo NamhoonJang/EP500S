@@ -77,13 +77,13 @@ void GcodeSuite::M48() {
     parser.linearval('X', current_position.x + probe.offset_xy.x),  // If no X use the probe's current X position
     parser.linearval('Y', current_position.y + probe.offset_xy.y)   // If no Y, ditto
   };
-
+/*
   if (!probe.can_reach(test_position)) {
     ui.set_status_P(GET_TEXT(MSG_M48_OUT_OF_BOUNDS), 99);
     SERIAL_ECHOLNPGM("? (X,Y) out of bounds.");
     return;
   }
-
+*/
   // Get the number of leg moves per test-point
   bool seen_L = parser.seen('L');
   uint8_t n_legs = seen_L ? parser.value_byte() : 0;
