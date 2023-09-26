@@ -519,7 +519,7 @@
 #define TEMP_WINDOW                  1  // (°C) Temperature proximity for the "temperature reached" timer
 #define TEMP_HYSTERESIS              2  // (°C) Temperature proximity considered "close enough" to the target
 
-#define TEMP_BED_RESIDENCY_TIME      5  // (seconds) Time to wait for bed to "settle" in M190
+#define TEMP_BED_RESIDENCY_TIME     15  // (seconds) Time to wait for bed to "settle" in M190
                                         // 목표온도권을 유지하는 최소시간을 나타냅니다. 이 시간이상 목표온도권에서 온도가 유지가 된다면 히팅이 완료되었다고 판단합니다.
 #define TEMP_BED_WINDOW              1  // (°C) Temperature proximity for the "temperature reached" timer
                                         // RESIDENCY_TIME을 측정하는 기준온도입니다.
@@ -688,7 +688,7 @@
 #define MAX_CHAMBER_POWER 255 // limits duty cycle to chamber heater; 255=full current
 
 #if ENABLED(PIDTEMPCHAMBER)
-  #define MIN_CHAMBER_POWER 0
+  #define MIN_CHAMBER_POWER 15
   //#define PID_CHAMBER_DEBUG // Sends debug data to the serial port.
 
   // Lasko "MyHeat Personal Heater" (200w) modified with a Fotek SSR-10DA to control only the heating element
