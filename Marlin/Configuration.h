@@ -527,9 +527,9 @@
 #define TEMP_BED_HYSTERESIS         3  // (°C) Temperature proximity considered "close enough" to the target
                                         // 목표온도권의 범위를 한정하는 설정값입니다. "3"이면 목표온도에서 ±3도를 목표온도 범위로 봅니다.
 
-#define TEMP_CHAMBER_RESIDENCY_TIME  5  // (seconds) Time to wait for chamber to "settle" in M191
+#define TEMP_CHAMBER_RESIDENCY_TIME 15  // (seconds) Time to wait for chamber to "settle" in M191
 #define TEMP_CHAMBER_WINDOW          1  // (°C) Temperature proximity for the "temperature reached" timer
-#define TEMP_CHAMBER_HYSTERESIS     10  // (°C) Temperature proximity considered "close enough" to the target
+#define TEMP_CHAMBER_HYSTERESIS      3  // (°C) Temperature proximity considered "close enough" to the target
 
 /**
  * Redundant Temperature Sensor (TEMP_SENSOR_REDUNDANT)

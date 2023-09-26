@@ -317,14 +317,14 @@
  */
 #if ENABLED(THERMAL_PROTECTION_CHAMBER)
   // 1. 챔버 히팅 시간 조절
-  #define THERMAL_PROTECTION_CHAMBER_PERIOD      20 // Seconds
+  #define THERMAL_PROTECTION_CHAMBER_PERIOD      1200 // Seconds
   #define THERMAL_PROTECTION_CHAMBER_HYSTERESIS    2 // Degrees Celsius
 
   /**
    * Heated chamber watch settings (M141/M191).
    */
-  #define WATCH_CHAMBER_TEMP_PERIOD             60 // Seconds
-  #define WATCH_CHAMBER_TEMP_INCREASE            2 // Degrees Celsius
+  #define WATCH_CHAMBER_TEMP_PERIOD             1200 // Seconds
+  #define WATCH_CHAMBER_TEMP_INCREASE            4 // Degrees Celsius
 #endif
 
 /**
