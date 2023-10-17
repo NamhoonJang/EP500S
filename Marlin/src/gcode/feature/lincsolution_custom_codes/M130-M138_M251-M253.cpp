@@ -418,7 +418,7 @@ void GcodeSuite::M252() {
         setFan[7] = 48 + fanspeed;
       }
       LCD_SERIAL.print(setFan);
-      //writeRS485(setFan);
+      writeRS485(setFan);
     }
     else
     {
