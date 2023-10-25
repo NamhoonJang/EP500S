@@ -446,7 +446,7 @@ void GcodeSuite::M253() {
   getStatus[0] = 'g'; getStatus[1] = 'S';  getStatus[2] = 'T';
   LCD_SERIAL.print(getStatus);
   rx2_loop();
-  //writeRS485(getStatus);
+  writeRS485(getStatus);
   //writeRS485("FAN", wfan_index, ": ", servo[servo_index].read());
 }
 
