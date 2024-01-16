@@ -490,7 +490,7 @@
  */
 // 4. 온도 센서 설정
 #define TEMP_SENSOR_0 21
-#define TEMP_SENSOR_1 21 // 원래 21
+#define TEMP_SENSOR_1 998 // 원래 21
 #define TEMP_SENSOR_2 998
 #define TEMP_SENSOR_3 0
 #define TEMP_SENSOR_4 0
