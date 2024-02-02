@@ -337,6 +337,81 @@ const bool Check_E2Home()
         }
     }   
 
+    void GcodeSuite::M139(){
+        pinMode(LINC_TEST_LCD_PIN1, OUTPUT);
+        pinMode(LINC_TEST_LCD_PIN2, OUTPUT);
+        pinMode(LINC_TEST_LCD_PIN3, OUTPUT);
+        pinMode(LINC_TEST_LCD_PIN4, OUTPUT);
+        pinMode(LINC_TEST_LCD_PIN5, OUTPUT);
+        pinMode(LINC_TEST_LCD_PIN6, OUTPUT);
+        pinMode(LINC_TEST_LCD_PIN7, OUTPUT);
+        pinMode(LINC_TEST_LCD_PIN8, OUTPUT);
+        pinMode(LINC_TEST_LCD_PIN9, OUTPUT);
+        pinMode(LINC_TEST_LCD_PIN10, OUTPUT);
+        pinMode(LINC_LED_RED_PIN, OUTPUT);
+        pinMode(LINC_LED_GREEN_PIN, OUTPUT);
+        pinMode(LINC_LED_BLUE_PIN, OUTPUT);
+
+        if(parser.seen('H')){
+            digitalWrite(LINC_TEST_LCD_PIN1, HIGH);
+
+            digitalWrite(LINC_TEST_LCD_PIN2, HIGH);
+
+            digitalWrite(LINC_TEST_LCD_PIN3, HIGH);
+
+            digitalWrite(LINC_TEST_LCD_PIN4, HIGH);
+
+            digitalWrite(LINC_TEST_LCD_PIN5, HIGH);
+
+            digitalWrite(LINC_TEST_LCD_PIN6, HIGH);
+
+            digitalWrite(LINC_TEST_LCD_PIN7, HIGH);
+
+            digitalWrite(LINC_TEST_LCD_PIN8, HIGH);
+
+            digitalWrite(LINC_TEST_LCD_PIN9, HIGH);
+
+            digitalWrite(LINC_TEST_LCD_PIN10, HIGH);
+
+            digitalWrite(LINC_LED_RED_PIN, HIGH);
+
+            digitalWrite(LINC_LED_GREEN_PIN, HIGH);
+
+            digitalWrite(LINC_LED_BLUE_PIN, HIGH);
+            SERIAL_ECHOLNPAIR("All High");
+        }
+        if(parser.seen('L')){
+
+            digitalWrite(LINC_TEST_LCD_PIN1, LOW);
+
+            digitalWrite(LINC_TEST_LCD_PIN2, LOW);
+
+            digitalWrite(LINC_TEST_LCD_PIN3, LOW);
+
+            digitalWrite(LINC_TEST_LCD_PIN4, LOW);
+
+            digitalWrite(LINC_TEST_LCD_PIN5, LOW);
+
+            digitalWrite(LINC_TEST_LCD_PIN6, LOW);
+
+            digitalWrite(LINC_TEST_LCD_PIN7, LOW);
+
+            digitalWrite(LINC_TEST_LCD_PIN8, LOW);
+
+            digitalWrite(LINC_TEST_LCD_PIN9, LOW);
+
+            digitalWrite(LINC_TEST_LCD_PIN10, LOW);
+
+            digitalWrite(LINC_LED_RED_PIN, LOW);
+
+            digitalWrite(LINC_LED_GREEN_PIN, LOW);
+
+            digitalWrite(LINC_LED_BLUE_PIN, LOW);
+            SERIAL_ECHOLNPAIR("All Low");
+
+        }
+   }
+
 /**
  * Marlin 3D Printer Firmware
  * Copyright (c) 2020 MarlinFirmware [https://github.com/MarlinFirmware/Marlin]
