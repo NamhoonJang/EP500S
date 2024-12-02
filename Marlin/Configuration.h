@@ -489,23 +489,23 @@
  *   2020: LINCSOLUTION CUSTOM TABLES.
  */
 // 4. 온도 센서 설정
-#define TEMP_SENSOR_0 21
-#define TEMP_SENSOR_1 21 // 원래 21
+#define TEMP_SENSOR_0 998
+#define TEMP_SENSOR_1 998 // 원래 21
 #define TEMP_SENSOR_2 998
 #define TEMP_SENSOR_3 0
 #define TEMP_SENSOR_4 0
 #define TEMP_SENSOR_5 0
 #define TEMP_SENSOR_6 0
 #define TEMP_SENSOR_7 0
-#define TEMP_SENSOR_BED 21
+#define TEMP_SENSOR_BED 998
 #define TEMP_SENSOR_PROBE 0
-#define TEMP_SENSOR_CHAMBER 21
+#define TEMP_SENSOR_CHAMBER 998
 #define TEMP_SENSOR_COOLER 0
 #define TEMP_SENSOR_BOARD 0
 #define TEMP_SENSOR_REDUNDANT 0
 
 // Dummy thermistor constant temperature readings, for use with 998 and 999
-#define DUMMY_THERMISTOR_998_VALUE  0
+#define DUMMY_THERMISTOR_998_VALUE  25
 #define DUMMY_THERMISTOR_999_VALUE 250
 
 // Resistor values when using MAX31865 sensors (-5) on TEMP_SENSOR_0 / 1
