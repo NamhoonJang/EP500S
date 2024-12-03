@@ -489,7 +489,7 @@
  *   2020: LINCSOLUTION CUSTOM TABLES.
  */
 // 4. 온도 센서 설정
-#define TEMP_SENSOR_0 998
+#define TEMP_SENSOR_0 999
 #define TEMP_SENSOR_1 998 // 원래 21
 #define TEMP_SENSOR_2 998
 #define TEMP_SENSOR_3 0
