@@ -302,7 +302,7 @@
 #if ENABLED(THERMAL_PROTECTION_BED)
   // 1. 베드 히팅 시간 조절
   #define THERMAL_PROTECTION_BED_PERIOD        1200 // Seconds
-  #define THERMAL_PROTECTION_BED_HYSTERESIS     2 // Degrees Celsius
+  #define THERMAL_PROTECTION_BED_HYSTERESIS     4 // Degrees Celsius
 
   /**
    * As described above, except for the bed (M140/M190/M303).
@@ -318,7 +318,7 @@
 #if ENABLED(THERMAL_PROTECTION_CHAMBER)
   // 1. 챔버 히팅 시간 조절
   #define THERMAL_PROTECTION_CHAMBER_PERIOD      1200 // Seconds
-  #define THERMAL_PROTECTION_CHAMBER_HYSTERESIS    2 // Degrees Celsius
+  #define THERMAL_PROTECTION_CHAMBER_HYSTERESIS    4 // Degrees Celsius
 
   /**
    * Heated chamber watch settings (M141/M191).
